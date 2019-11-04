@@ -30,11 +30,11 @@ public class InterviewTwitterApplication {
 
     @Override
     public void run(ApplicationArguments args) {
-      User rogerVer = userRepository.save(new User("rogerkver", "password"));
-      User andreasAntonopoulos = userRepository.save(new User("aantonop", "password"));
+      User rogerVer = userRepository.save(new User("rogerkver", "password", "Roger", "Kver"));
+      User andreasAntonopoulos = userRepository.save(new User("aantonop", "password", "Aant", "Onop"));
       User vitalikButerin = userRepository.save(new User("VitalikButerin", "password"));
       User charlieLee = userRepository.save(new User("SatoshiLite", "password"));
-      User satoshiNakamoto = userRepository.save(new User("satoshiNakamoto", "password"));
+      User satoshiNakamoto = userRepository.save(new User("satoshiNakamoto", "password", "Satoshi", null));
 
       vitalikButerin.addFollowing(satoshiNakamoto, rogerVer);
       userRepository.save(vitalikButerin);
