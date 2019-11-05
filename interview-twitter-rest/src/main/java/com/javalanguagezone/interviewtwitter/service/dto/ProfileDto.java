@@ -7,6 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ProfileDto {
 
+  private String username;
+  private String fullName;
   private Integer numberOfTweets;
   private Integer numberOfFollowers;
   private Integer numberOfFollowing;

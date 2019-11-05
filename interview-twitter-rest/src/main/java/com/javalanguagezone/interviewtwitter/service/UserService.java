@@ -51,7 +51,7 @@ public class UserService implements UserDetailsService {
 
   public ProfileDto getUserProfile(Principal principal) {
     User user = getUser(principal.getName());
-    return new ProfileDto(tweetRepository.findAllByAuthor(user).size(), user.getFollowers().size(), user.getFollowing().size());
+    return new ProfileDto(user.getUsername(), user.getFullName(), tweetRepository.findAllByAuthor(user).size(), user.getFollowers().size(), user.getFollowing().size());
   }
 
   private User getUser(String username) {

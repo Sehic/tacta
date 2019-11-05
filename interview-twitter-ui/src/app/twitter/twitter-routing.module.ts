@@ -8,6 +8,7 @@ const routes: Routes = [
     path: 'app', component: MainComponent,
     children: [
       {path: '', redirectTo: 'tweets', pathMatch: 'full'},
+      {path: 'profile', loadChildren: 'app/twitter/user-profile/user-profile.module#UserProfileModule'},
       {path: 'tweets', loadChildren: 'app/twitter/tweets/tweets.module#TweetsModule'},
       {path: 'tweets/:username', loadChildren: 'app/twitter/user-tweets/user-tweets.module#UserTweetsModule'},
     ],
