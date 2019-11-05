@@ -8,7 +8,6 @@ import com.javalanguagezone.interviewtwitter.service.dto.TweetDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.Size;
 import java.security.Principal;
 import java.util.Collection;
 
@@ -16,7 +15,7 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
-@RequestMapping("tweets")
+@RequestMapping("api/tweets")
 @Slf4j
 public class TweetController {
 

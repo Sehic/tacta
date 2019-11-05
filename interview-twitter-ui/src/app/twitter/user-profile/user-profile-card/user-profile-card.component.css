@@ -2,7 +2,7 @@
   background: #fff none repeat scroll 0 0;
   border: 1px solid #e1e8ed;
   border-radius: 6px;
-  height: 200px;
+  height: 220px;
   max-width: 340px; // orginal twitter width: 290px;
 }
 .twPc-bg {
@@ -48,7 +48,7 @@
   font-weight: 700;
   line-height: 21px;
 }
-.twPc-divName a {
+.twPc-divName p {
   color: inherit !important;
 }
 .twPc-divStats {

@@ -3,6 +3,7 @@ package com.javalanguagezone.interviewtwitter.service;
 import com.javalanguagezone.interviewtwitter.domain.User;
 import com.javalanguagezone.interviewtwitter.repository.TweetRepository;
 import com.javalanguagezone.interviewtwitter.repository.UserRepository;
+import com.javalanguagezone.interviewtwitter.service.dto.NewUserDTO;
 import com.javalanguagezone.interviewtwitter.service.dto.ProfileDto;
 import com.javalanguagezone.interviewtwitter.service.dto.UserDTO;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -54,11 +55,30 @@ public class UserService implements UserDetailsService {
     return new ProfileDto(user.getUsername(), user.getFullName(), tweetRepository.findAllByAuthor(user).size(), user.getFollowers().size(), user.getFollowing().size());
   }
 
+  public NewUserDTO registerUser(NewUserDTO newUserDTO) {
+    User user = new User(newUserDTO.getUsername(), newUserDTO.getPassword(), newUserDTO.getFirstName(), newUserDTO.getLastName());
+    if(!user.isValid() || userRepository.existsByUsername(newUserDTO.getUsername()))
+      throw new InvalidUserException(newUserDTO.getUsername());
+    User saved = userRepository.save(user);
+    return new NewUserDTO(saved);
+  }
+
+  public Boolean checkExistByUsername(String username) {
+    return userRepository.existsByUsername(username);
+  }
+
   private User getUser(String username) {
     return userRepository.findOneByUsername(username);
   }
 
   private List<UserDTO> convertUsersToDTOs(Set<User> users) {
     return users.stream().map(UserDTO::new).collect(toList());
+  }
+
+  public static class InvalidUserException extends RuntimeException {
+
+    private InvalidUserException(String username) {
+      super("'" +  username + "'");
+    }
   }
 }

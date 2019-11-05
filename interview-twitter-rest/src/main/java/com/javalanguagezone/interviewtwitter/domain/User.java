@@ -66,6 +66,10 @@ public class User implements UserDetails {
     return (this.getFirstName() != null ? this.getFirstName() : "") + " " + (this.getLastName() != null ? this.getLastName() : "");
   }
 
+  public boolean isValid() {
+    return username != null && !username.isEmpty() && password != null && !password.isEmpty();
+  }
+
   @Override
   @JsonIgnore
   public Collection<? extends GrantedAuthority> getAuthorities() {

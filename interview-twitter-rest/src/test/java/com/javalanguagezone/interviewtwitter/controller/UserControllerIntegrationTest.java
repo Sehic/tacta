@@ -1,5 +1,6 @@
 package com.javalanguagezone.interviewtwitter.controller;
 
+import com.javalanguagezone.interviewtwitter.service.dto.ProfileDto;
 import com.javalanguagezone.interviewtwitter.service.dto.UserDTO;
 import org.junit.Test;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,14 @@ public class UserControllerIntegrationTest extends RestIntegrationTest {
     List<UserDTO> following = Arrays.asList(response.getBody());
     assertThat(following, hasSize(4));
     assertThat(extractUsernames(following), containsInAnyOrder(followingUsers()));
+  }
+
+  @Test
+  public void getUserProfile() {
+    ResponseEntity<ProfileDto> response = withAuthTestRestTemplate().getForEntity("/profile", ProfileDto.class);
+    assertThat(response.getStatusCode().is2xxSuccessful(), is(true));
+    ProfileDto profileDto = response.getBody();
+    assertThat(profileDto.getUsername(), is("rogerkver"));
   }
 
 

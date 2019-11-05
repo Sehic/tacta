@@ -10,32 +10,32 @@
 
         <div class="twPc-divUser">
           <div class="twPc-divName">
-            <a href="">{{profile.fullName}}</a>
+            <p>{{profile.fullName}}</p>
           </div>
           <span>
-				<a href="">@<span>{{profile.username}}</span></a>
+				<p>@<span>{{profile.username}}</span></p>
 			</span>
         </div>
 
         <div class="twPc-divStats">
           <ul class="twPc-Arrange">
             <li class="twPc-ArrangeSizeFit">
-              <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
+              <p title="{{profile.numberOfTweets}} Tweet">
                 <span class="twPc-StatLabel twPc-block">Tweets</span>
                 <span class="twPc-StatValue">{{profile.numberOfTweets}}</span>
-              </a>
+              </p>
             </li>
             <li class="twPc-ArrangeSizeFit">
-              <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+              <p title="{{profile.numberOfFollowing}} Following">
                 <span class="twPc-StatLabel twPc-block">Following</span>
                 <span class="twPc-StatValue">{{profile.numberOfFollowing}}</span>
-              </a>
+              </p>
             </li>
             <li class="twPc-ArrangeSizeFit">
-              <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+              <p title="{{profile.numberOfFollowers}} Followers">
                 <span class="twPc-StatLabel twPc-block">Followers</span>
                 <span class="twPc-StatValue">{{profile.numberOfFollowers}}</span>
-              </a>
+              </p>
             </li>
           </ul>
         </div>
